@@ -65,16 +65,16 @@ const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 if (!audio) return; 
 audio.currentTime = 0; 
 audio.play();
-key.clasList.add('playing');
+key.classList.add('playing');
 });
 
 function removeTransition(e){
   if (e.propertyName !== 'transition') return;
-  this.classList.remove('_playing')
+  this.classList.remove('playing')
 }
 
 const keys = document.querySelector('.key');
-keys.forEach(key => key.addEventListener('transitioned', removeTransition));
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 window.addEventListener('keydown', playSound);
 
 </script>
